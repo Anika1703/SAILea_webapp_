@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+require('dotenv').config();
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -37,14 +39,58 @@ app.use('/', routes);
 
 // passport config
 var Account = require('./models/account');
+
+// Local Strategy
 passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
+
+// Google Strategy
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  },
+  async function(accessToken, refreshToken, profile, cb) {
+    try {
+      // Search for user by email
+      let user = await Account.findOne({ email: profile.emails[0].value });
+      
+      if (!user) {
+        // If user doesn't exist, create a new one
+        console.log("Creating new user from Google login");
+        user = new Account({
+          username: profile.emails[0].value.split('@')[0], // Use email prefix as username
+          email: profile.emails[0].value,
+          googleId: profile.id,
+          name: profile.displayName
+        });
+        
+        await user.save();
+        console.log("New user created:", user);
+      }
+      
+      return cb(null, user);
+    } catch (err) {
+      console.log("Error in Google Strategy:", err);
+      return cb(err);
+    }
+  }
+));
+
+// Passport serialization
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    Account.findById(id, function(err, user) {
+        done(err, user);
+    });
+});
 
 // mongoose
 mongoose.connect('mongodb://127.0.0.1:27017/passport_local_mongoose_express4', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log('MongoDB connection error:', err));
