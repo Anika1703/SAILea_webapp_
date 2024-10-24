@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .container
+    h1 Welcome #{user.username}
+    .row
+      .col-md-4
+        .card
+          .card-body
+            h5.card-title Navigation
+            ul.list-unstyled
+              li
+                a.btn.btn-primary.mb-2(href='/resources') Resources
+              li
+                a.btn.btn-primary.mb-2(href='/calendar') Calendar
+              li
+                a.btn.btn-primary.mb-2(href='/chat') Chat
+    
+    .row.mt-4
+      .col-md-8
+        h3 Upcoming Events
+        p Your next event is: SAILea Speaker Event
