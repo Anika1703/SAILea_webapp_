@@ -24,3 +24,122 @@ a {
   width: 100%;
   margin-bottom: 10px;
 }
+
+/* Add these styles to your style.css */
+
+/* Card hover effects */
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* List group item hover effects */
+.list-group-item-action {
+  transition: all 0.2s ease;
+}
+
+.list-group-item-action:hover {
+  background-color: #f8f9fa;
+  transform: translateX(5px);
+}
+
+/* Icon styles */
+.fa-lg {
+  font-size: 1.5em;
+}
+
+/* Custom spacing for icons */
+.me-2 {
+  margin-right: 0.5rem;
+}
+
+.me-3 {
+  margin-right: 1rem;
+}
+
+/* Custom colors */
+.bg-primary {
+  background-color: #3498db !important;
+}
+
+.bg-secondary {
+  background-color: #2c3e50 !important;
+}
+
+.bg-info {
+  background-color: #17a2b8 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Add to your style.css */
+
+/* Progress circle */
+.progress-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(#28a745 33%, #e9ecef 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.progress-circle::before {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: white;
+}
+
+.progress-number {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Checkbox styling */
+.form-check-input {
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: 0;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Progress bar animations */
+.progress-bar {
+  transition: width 0.3s ease;
+}
+
+/* List group item enhancements */
+.list-group-item {
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.list-group-item:has(.form-check-input:checked) {
+  border-left-color: #28a745;
+  background-color: #f8fff9;
+}
+
+/* Gap utility */
+.gap-3 {
+  gap: 1rem;
+}

@@ -1,20 +1,173 @@
 extends layout
 
 block content
-  .container
-    h1 Resources
+  .container.py-5
+    // Hero Section
+    .text-center.mb-5
+      h1.display-4.mb-3 Resources
+      p.lead.text-muted Track your learning progress
+
     .row
-      .col-md-8
-        h3 Learning Materials
-        .list-group
-          a.list-group-item.list-group-item-action(href="https://docs.google.com/document/d/yourlink1", target="_blank")
-            i.fas.fa-file-pdf.mr-2
-            | Mathematics behind Deep Learning Lesson 1
-          
-          a.list-group-item.list-group-item-action(href="https://docs.google.com/document/d/yourlink2", target="_blank")
-            i.fas.fa-file-pdf.mr-2
-            | Java Lesson 3
-            
-          a.list-group-item.list-group-item-action(href="https://docs.google.com/document/d/yourlink3", target="_blank")
-            i.fas.fa-file-pdf.mr-2
-            | How to use the ChatGPT API
+      // Main Content Column
+      .col-lg-8
+        // Interactive Activities Card
+        .card.shadow-sm.mb-4
+          .card-header.bg-primary.text-white.d-flex.justify-content-between.align-items-center
+            h3.mb-0 Interactive Activities
+            span.badge.bg-light.text-primary 1/3 Completed
+
+          .card-body
+            .list-group
+              // LSTM Activity
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input(type="checkbox", id="lstm-activity")
+                    label.form-check-label.mb-0(for="lstm-activity")
+                  .flex-grow-1
+                    h5.mb-1 LSTM Interactive Activity
+                    p.mb-1.text-muted Learn about Long Short-Term Memory Networks
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar.bg-secondary(role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-outline-primary.btn-sm(href="https://drive.google.com/drive/folders/1g_lS0OPibrpTPz04d1bbD_THNgb7KbPz?usp=sharing" target="_blank")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Full stack activity 
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input(type="checkbox", id="full-stack")
+                    label.form-check-label.mb-0(for="full-stack")
+                  .flex-grow-1
+                    h5.mb-1 Full Stack WebApp
+                    p.mb-1.text-muted Introduction to full stack development
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar.bg-secondary(role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-outline-primary.btn-sm(href="https://drive.google.com/drive/folders/133iOXI53TfwlvZ2d9Eo8xE4-lQQBXYtn?usp=sharing" target="_blank")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Deep Learning (Coming Soon)
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input(type="checkbox", id="deep-learning")
+                    label.form-check-label.mb-0(for="deep-learning")
+                  .flex-grow-1
+                    h5.mb-1 ChatGPT API 
+                    p.mb-1.text-muted Learn about the ChatGPT API
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar.bg-secondary(role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-outline-primary.btn-sm(href="https://drive.google.com/drive/folders/1nIshMRR7xU7qbW9cNihvHuzms4pwkt_7?usp=sharing" target="_blank")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+        // Additional Resources Card
+        .card.shadow-sm.mb-4
+          .card-header.bg-info.text-white
+            h3.mb-0 Additional Resources
+          .card-body
+            .list-group
+              a.list-group-item.list-group-item-action(href="#")
+                .d-flex.w-100.justify-content-between
+                  h5.mb-1 Documentation
+                  small Coming soon
+                p.mb-1 Complete API documentation and guides
+
+              a.list-group-item.list-group-item-action(href="#")
+                .d-flex.w-100.justify-content-between
+                  h5.mb-1 Example Projects
+                  small Coming soon
+                p.mb-1 Real-world applications and examples
+
+      // Sidebar Column
+      .col-lg-4
+        // Progress Summary Card
+        .card.shadow-sm.mb-4
+          .card-header.bg-success.text-white
+            h4.mb-0 Your Progress
+          .card-body
+            .d-flex.justify-content-center.mb-3
+              .progress-circle
+                span.progress-number 33%
+            h5.text-center.mb-3 Keep going!
+            .progress.mb-3
+              .progress-bar.bg-success(role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100")
+            .small.text-muted.text-center 1 of 3 activities completed
+
+        // Quick Links Card
+        .card.shadow-sm
+          .card-header.bg-secondary.text-white
+            h4.mb-0 Courses
+          .list-group.list-group-flush
+            a.list-group-item.list-group-item-action(href="#")
+              i.fas.fa-book.me-2
+              | Study Materials
+            a.list-group-item.list-group-item-action(href="#")
+              i.fas.fa-code.me-2
+              | CS and Programming
+            a.list-group-item.list-group-item-action(href="#")
+              i.fas.fa-question-circle.me-2
+              | AI/ML
+
+//- JavaScript for handling progress tracking
+script.
+  document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.form-check-input');
+    
+    // Load saved states
+    checkboxes.forEach(checkbox => {
+      const saved = localStorage.getItem(`activity-${checkbox.id}`);
+      if (saved === 'true') {
+        checkbox.checked = true;
+        updateProgress(checkbox);
+      }
+    });
+
+    // Save state on change
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        localStorage.setItem(`activity-${this.id}`, this.checked);
+        updateProgress(this);
+        updateOverallProgress();
+      });
+    });
+
+    function updateProgress(checkbox) {
+      const progressBar = checkbox.closest('.list-group-item').querySelector('.progress-bar');
+      if (checkbox.checked) {
+        progressBar.style.width = '100%';
+        progressBar.classList.replace('bg-secondary', 'bg-success');
+      } else {
+        progressBar.style.width = '0%';
+        progressBar.classList.replace('bg-success', 'bg-secondary');
+      }
+    }
+
+    function updateOverallProgress() {
+      const total = checkboxes.length;
+      const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+      const percentage = Math.round((completed / total) * 100);
+      
+      // Update progress circle and number
+      document.querySelector('.progress-number').textContent = `${percentage}%`;
+      document.querySelector('.progress-circle').style.background = 
+        `conic-gradient(#28a745 ${percentage}%, #e9ecef 0)`;
+      
+      // Update progress bar
+      const progressBar = document.querySelector('.card-body .progress-bar');
+      progressBar.style.width = `${percentage}%`;
+      
+      // Update completion text
+      document.querySelector('.small.text-muted').textContent = 
+        `${completed} of ${total} activities completed`;
+      
+      // Update header badge
+      document.querySelector('.badge.bg-light').textContent = 
+        `${completed}/${total} Completed`;
+    }
+
+    // Initial overall progress update
+    updateOverallProgress();
+  });
