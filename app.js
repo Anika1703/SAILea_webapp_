@@ -88,7 +88,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 // mongoose
-mongoose.connect('mongodb://127.0.0.1:27017/passport_local_mongoose_express4', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
