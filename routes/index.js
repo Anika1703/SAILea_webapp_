@@ -75,32 +75,32 @@ router.get('/dashboard', isAuthenticated, function(req, res) {
 });
 
 // Resources route
-router.get('/resources', isAuthenticated, function(req, res) {
+//router.get('/resources', isAuthenticated, function(req, res) {
     // You can add your resources data here
-    const resources = [
-        {
-            title: "Mathematics behind Deep Learning Lesson 1",
-            link: "https://docs.google.com/document/d/yourlink1",
-            type: "pdf"
-        },
-        {
-            title: "Java Lesson 3",
-            link: "https://docs.google.com/document/d/yourlink2",
-            type: "doc"
-        },
-        {
-            title: "How to use the ChatGPT API",
-            link: "https://docs.google.com/document/d/yourlink3",
-            type: "doc"
-        }
-    ];
+    //const resources = [
+        //{
+            //title: "Mathematics behind Deep Learning Lesson 1",
+            //link: "https://docs.google.com/document/d/yourlink1",
+            //type: "pdf"
+        //},
+        //{
+            //title: "Java Lesson 3",
+            //link: "https://docs.google.com/document/d/yourlink2",
+            //type: "doc"
+        //},
+        //{
+            //title: "How to use the ChatGPT API",
+            //link: "https://docs.google.com/document/d/yourlink3",
+            //type: "doc"
+        //}
+    //];
 
-    res.render('resources', { 
-        user: req.user,
-        title: 'Resources',
-        resources: resources
-    });
-});
+    //res.render('resources', { 
+        //user: req.user,
+        //title: 'Resources',
+        //resources: resources
+    //});
+//});
 
 // Ping route (for testing)
 router.get('/ping', function(req, res){

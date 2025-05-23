@@ -10,7 +10,366 @@ block content
             h1.display-4.text-white Welcome back, 
               span.fw-bold #{user.username}.
 
-  .container.py-4
+  .container.py-5
+    // Hero Section
+    .text-center.mb-5
+      h1.display-4.mb-3.text-primary Resources
+      p.lead.text-muted Track your learning progress
+
+    .row
+      // Main Content Column
+      .col-lg-8
+        // Interactive Activities Card
+        .card.shadow-sm.mb-4
+          .card-header.bg-primary.text-white.d-flex.justify-content-between.align-items-center
+            h3.mb-0 Interactive Activities
+            span.badge.bg-light.text-primary#activities-completion-badge 1/3 Completed
+
+          .card-body
+            .list-group
+              // LSTM Activity
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input(type="checkbox", id="lstm-activity")
+                    label.form-check-label.mb-0(for="lstm-activity")
+                  .flex-grow-1
+                    h5.mb-1 LSTM Interactive Activity
+                    p.mb-1.text-muted Learn about Long Short-Term Memory Networks
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar.bg-primary(role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-outline-primary.btn-sm(href="https://drive.google.com/drive/folders/1g_lS0OPibrpTPz04d1bbD_THNgb7KbPz?usp=sharing" target="_blank")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Full stack activity 
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input(type="checkbox", id="full-stack")
+                    label.form-check-label.mb-0(for="full-stack")
+                  .flex-grow-1
+                    h5.mb-1 Full Stack WebApp
+                    p.mb-1.text-muted Introduction to full stack development
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar.bg-primary(role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-outline-primary.btn-sm(href="https://drive.google.com/drive/folders/133iOXI53TfwlvZ2d9Eo8xE4-lQQBXYtn?usp=sharing" target="_blank")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Deep Learning (Coming Soon)
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input(type="checkbox", id="deep-learning")
+                    label.form-check-label.mb-0(for="deep-learning")
+                  .flex-grow-1
+                    h5.mb-1 ChatGPT API 
+                    p.mb-1.text-muted Learn about the ChatGPT API
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar.bg-primary(role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-outline-primary.btn-sm(href="https://drive.google.com/drive/folders/1nIshMRR7xU7qbW9cNihvHuzms4pwkt_7?usp=sharing" target="_blank")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+        // Python Course Card
+        .card.shadow-sm.mb-4
+          .card-header.text-white.d-flex.justify-content-between.align-items-center(style="background-color: #4B9CD3;")
+            h3.mb-0 Python
+            span.badge.bg-light(style="color: #4B9CD3;")#python-completion-badge 0/5 Completed
+
+          .card-body
+            .list-group
+              // Week 1
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input.python-checkbox(type="checkbox", id="python-week1", data-course="python")
+                    label.form-check-label.mb-0(for="python-week1")
+                  .flex-grow-1
+                    h5.mb-1 Week 1: Introduction to Python
+                    p.mb-1.text-muted Learn the basics of Python programming
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar(role="progressbar" style="width: 0%; background-color: #4B9CD3;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-sm(href="https://drive.google.com/drive/folders/1dY3ABJ8n51ipiGdrmgsMfJq0-OKICV4L?usp=sharing" target="_blank" style="border-color: #4B9CD3; color: #4B9CD3;")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Week 2
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input.python-checkbox(type="checkbox", id="python-week2", data-course="python")
+                    label.form-check-label.mb-0(for="python-week2")
+                  .flex-grow-1
+                    h5.mb-1 Week 2: Data Types and Variables
+                    p.mb-1.text-muted Learn about data types and variables in Python
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar(role="progressbar" style="width: 0%; background-color: #4B9CD3;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-sm(href="https://drive.google.com/drive/folders/1BfyXmPptmWoMCXgF88mwmjL86FNFvkZ0?usp=sharing" target="_blank" style="border-color: #4B9CD3; color: #4B9CD3;")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Week 3
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input.python-checkbox(type="checkbox", id="python-week3", data-course="python")
+                    label.form-check-label.mb-0(for="python-week3")
+                  .flex-grow-1
+                    h5.mb-1 Week 3: Collection Data Types in Python
+                    p.mb-1.text-muted Learn about collection data types in Python
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar(role="progressbar" style="width: 0%; background-color: #4B9CD3;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-sm(href="https://drive.google.com/drive/folders/1aBOkr3eqEKQSqKd0Up_qy_80OlVoQvvs?usp=sharing" target="_blank" style="border-color: #4B9CD3; color: #4B9CD3;")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Week 4
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input.python-checkbox(type="checkbox", id="python-week4", data-course="python")
+                    label.form-check-label.mb-0(for="python-week4")
+                  .flex-grow-1
+                    h5.mb-1 Week 4: Operation and Loops
+                    p.mb-1.text-muted Learn about operations and loops in Python
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar(role="progressbar" style="width: 0%; background-color: #4B9CD3;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-sm(href="https://drive.google.com/drive/folders/1ke3nznF67m-hlIGXTnxku_j_L5bFu_BV?usp=sharing" target="_blank" style="border-color: #4B9CD3; color: #4B9CD3;")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+              
+              // Week 5
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input.python-checkbox(type="checkbox", id="python-week5", data-course="python")
+                    label.form-check-label.mb-0(for="python-week5")
+                  .flex-grow-1
+                    h5.mb-1 Week 5: Basic OOP
+                    p.mb-1.text-muted Learn about basic OOP in Python
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar(role="progressbar" style="width: 0%; background-color: #4B9CD3;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-sm(href="https://drive.google.com/drive/folders/1psIRphzlx3MsPfQgbIfQGacPHurhfGLo?usp=sharing" target="_blank" style="border-color: #4B9CD3; color: #4B9CD3;")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+        
+        // Math Behind Deep Learning
+        .card.shadow-sm.mb-4
+          .card-header.text-white.d-flex.justify-content-between.align-items-center(style="background-color: #13294B;")
+            h3.mb-0 Math Behind Deep Learning 
+            span.badge.bg-light(style="color: #13294B;")#mdl-completion-badge 0/2 Completed
+
+          .card-body
+            .list-group
+              // Week 1
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input.mdl-checkbox(type="checkbox", id="mdl-week1", data-course="mdl")
+                    label.form-check-label.mb-0(for="mdl-week1")
+                  .flex-grow-1
+                    h5.mb-1 Week 1: Intro to Linear Algebra
+                    p.mb-1.text-muted Foundations of linear algebra for deep learning
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar(role="progressbar" style="width: 0%; background-color: #13294B;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-sm(href="https://drive.google.com/drive/folders/1fpsqdrDgFrKfn2mbzx_FCTdJ1Nlv9QJ3?usp=sharing" target="_blank" style="border-color: #13294B; color: #13294B;")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+              // Week 2
+              .list-group-item
+                .d-flex.align-items-center.gap-3
+                  .form-check
+                    input.form-check-input.mdl-checkbox(type="checkbox", id="mdl-week2", data-course="mdl")
+                    label.form-check-label.mb-0(for="mdl-week2")
+                  .flex-grow-1
+                    h5.mb-1 Week 2: Calc Basics
+                    p.mb-1.text-muted Calculus fundamentals for machine learning
+                    .progress.mt-2(style="height: 5px")
+                      .progress-bar(role="progressbar" style="width: 0%; background-color: #13294B;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100")
+                  a.btn.btn-sm(href="https://drive.google.com/file/d/1lbdZy1vcMnoUQ4NnzJ5IkZpK89sOsB1h/view?usp=sharing" target="_blank" style="border-color: #13294B; color: #13294B;")
+                    i.fas.fa-external-link-alt.me-1
+                    | Start
+
+      // Sidebar Column
+      .col-lg-4
+        // Progress Summary Card
+        .card.shadow-sm.mb-4
+          .card-header.text-white(style="background-color: #13294B;")
+            h4.mb-0 Your Progress
+          .card-body
+            .d-flex.justify-content-center.mb-3
+              .progress-circle(style="background: conic-gradient(#4B9CD3 0% 14%, #f3f3f3 14% 100%); width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center;")
+                span.progress-number.fs-3(style="background: white; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center;") 14%
+            h5.text-center.mb-3 Keep going!
+            .progress.mb-3
+              .progress-bar(role="progressbar" style="width: 14%; background-color: #4B9CD3;" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100")
+            .small.text-muted.text-center 1 of 10 activities completed
+
+        // Quick Links Card
+        .card.shadow-sm
+          .card-header.text-white(style="background-color: #13294B;")
+            h4.mb-0 Quick Links
+          .list-group.list-group-flush
+            a.list-group-item.list-group-item-action(href="#")
+              i.fas.fa-book.me-2
+              | Study Materials
+            a.list-group-item.list-group-item-action(href="#")
+              i.fas.fa-code.me-2
+              | CS and Programming
+            a.list-group-item.list-group-item-action(href="#")
+              i.fas.fa-question-circle.me-2
+              | AI/ML
+            a.list-group-item.list-group-item-action(href="https://drive.google.com/drive/folders/1dY3ABJ8n51ipiGdrmgsMfJq0-OKICV4L?usp=sharing" target="_blank")
+              i.fas.fa-python.me-2
+              | Python Course Materials
+
+  script.
+    console.log('===== SCRIPT INITIATED =====');
+
+    // Wait until DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM fully loaded and parsed.');
+
+      // Activity tracking
+      const activityBadge = document.getElementById('activities-completion-badge');
+      const activityCheckboxes = document.querySelectorAll('input[type="checkbox"]:not(.python-checkbox):not(.mdl-checkbox)');
+      
+      // Python course tracking
+      const pythonBadge = document.getElementById('python-completion-badge');
+      const pythonCheckboxes = document.querySelectorAll('.python-checkbox');
+      
+      // Math behind deep learning tracking
+      const mdlBadge = document.getElementById('mdl-completion-badge');
+      const mdlCheckboxes = document.querySelectorAll('.mdl-checkbox');
+      
+      // Overall progress elements
+      const progressCircle = document.querySelector('.progress-circle');
+      const progressNumber = document.querySelector('.progress-number');
+      const progressBar = document.querySelector('.progress-bar');
+      const progressText = document.querySelector('.small.text-muted.text-center');
+
+      // Function to update activity progress
+      function updateActivityProgress() {
+        const total = activityCheckboxes.length;
+        const completed = Array.from(activityCheckboxes).filter(cb => cb.checked).length;
+        
+        // Update the badge in card header
+        if (activityBadge) {
+          activityBadge.textContent = `${completed}/${total} Completed`;
+        }
+        
+        return { completed, total };
+      }
+
+      // Function to update Python course progress
+      function updatePythonProgress() {
+        const total = pythonCheckboxes.length;
+        const completed = Array.from(pythonCheckboxes).filter(cb => cb.checked).length;
+        
+        // Update the badge in card header
+        if (pythonBadge) {
+          pythonBadge.textContent = `${completed}/${total} Completed`;
+        }
+        
+        // Update progress bars for week items
+        Array.from(pythonCheckboxes).forEach(checkbox => {
+          const progressBar = checkbox.closest('.list-group-item').querySelector('.progress-bar');
+          
+          if (progressBar) {
+            // Calculate the percentage based on whether this week is checked
+            const percent = checkbox.checked ? 100 : 0;
+            progressBar.style.width = `${percent}%`;
+            progressBar.setAttribute('aria-valuenow', percent);
+          }
+        });
+        
+        return { completed, total };
+      }
+      
+      // Function to update Math Behind DL progress
+      function updateMdlProgress() {
+        const total = mdlCheckboxes.length;
+        const completed = Array.from(mdlCheckboxes).filter(cb => cb.checked).length;
+        
+        // Update the badge in card header
+        if (mdlBadge) {
+          mdlBadge.textContent = `${completed}/${total} Completed`;
+        }
+        
+        // Update progress bars for week items
+        Array.from(mdlCheckboxes).forEach(checkbox => {
+          const progressBar = checkbox.closest('.list-group-item').querySelector('.progress-bar');
+          
+          if (progressBar) {
+            // Calculate the percentage based on whether this week is checked
+            const percent = checkbox.checked ? 100 : 0;
+            progressBar.style.width = `${percent}%`;
+            progressBar.setAttribute('aria-valuenow', percent);
+          }
+        });
+        
+        return { completed, total };
+      }
+
+      // Function to calculate and update overall progress
+      function updateOverallProgress() {
+        const activities = updateActivityProgress();
+        const python = updatePythonProgress();
+        const mdl = updateMdlProgress();
+        
+        const totalItems = activities.total + python.total + mdl.total;
+        const completedItems = activities.completed + python.completed + mdl.completed;
+        const percent = Math.round((completedItems / totalItems) * 100);
+
+        // Update the overall progress summary section
+        if (progressNumber) {
+          progressNumber.textContent = `${percent}%`;
+        }
+        
+        if (progressCircle) {
+          progressCircle.style.background = `conic-gradient(#4B9CD3 0% ${percent}%, #f3f3f3 ${percent}% 100%)`;
+        }
+
+        if (progressBar) {
+          progressBar.style.width = `${percent}%`;
+          progressBar.setAttribute('aria-valuenow', percent);
+        }
+
+        if (progressText) {
+          progressText.textContent = `${completedItems} of ${totalItems} activities completed`;
+        }
+
+        console.log(`Overall progress updated: ${completedItems}/${totalItems} (${percent}%)`);
+      }
+
+      // Add event listeners to all activity checkboxes
+      activityCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateOverallProgress);
+      });
+
+      // Add event listeners to all Python checkboxes
+      pythonCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateOverallProgress);
+      });
+      
+      // Add event listeners to all MDL checkboxes
+      mdlCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateOverallProgress);
+      });
+
+      // Initialize progress on page load
+      updateOverallProgress();
+    });
+
+
+
+
+
+  //This is where the iteration 2 code starts. replace it 1 with this later
+  //-.container.py-4
     // Continue where you left off section
     .row.mb-4
       .col-12
@@ -156,7 +515,7 @@ block content
             a.btn.btn-outline-primary.btn-sm(href='/resources' style="color: #4B9CD3; border-color: #4B9CD3;") View Material
 
   // Add CSS for the progress circle animation and card styling
-  style.
+  //-style.
     :root {
       --unc-blue: #4B9CD3;
       --unc-navy: #13294B;
